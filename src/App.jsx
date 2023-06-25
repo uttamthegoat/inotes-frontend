@@ -2,7 +2,6 @@ import { lazy, Suspense } from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import NoteState from "./context/notes/NoteState";
-import AlertState from "./context/AlertState";
 import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
@@ -16,7 +15,6 @@ function App() {
   return (
     <div className="App">
       <NoteState>
-        <AlertState>
           <Suspense fallback={<h1 className="text-center">Loading...</h1>}>
             <Navbar />
             <Routes>
@@ -27,7 +25,6 @@ function App() {
               <Route path="*" element={<Redirect />} />
             </Routes>
           </Suspense>
-        </AlertState>
       </NoteState>
     </div>
   );
