@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 export const NoteContext = createContext();
 const NoteState = (props) => {
-  let host = "http://localhost:5000";
+  let host = "https://inotes-server.vercel.app";
   const auth_token = localStorage.getItem("token");
 
   const [allnotes, setAllnotes] = useState([]);
@@ -24,8 +24,8 @@ const NoteState = (props) => {
     const response = await fetch(`${host}/api/notes/addnote`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
         "auth-token": auth_token,
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ title, description }),
     });
@@ -38,8 +38,8 @@ const NoteState = (props) => {
     const response = await fetch(`${host}/api/notes/deletenote/${id}`, {
       method: "DELETE",
       headers: {
-        "Content-Type": "application/json",
         "auth-token": auth_token,
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ id }),
     });
@@ -52,8 +52,8 @@ const NoteState = (props) => {
     const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
       method: "PUT",
       headers: {
-        "Content-Type": "application/json",
         "auth-token": auth_token,
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ id, title, description }),
     });

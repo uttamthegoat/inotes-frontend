@@ -10,7 +10,7 @@ export default function Signup() {
   });
   const handleSignup = async (e) => {
     e.preventDefault();
-    let response = await fetch('http://localhost:5000/api/auth/createuser', {
+    let response = await fetch('https://inotes-server.vercel.app/api/auth/createuser', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
